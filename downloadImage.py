@@ -1,6 +1,6 @@
 import requests
 
-def download_image(image_url):
+def downloadImage(image_url):
    image = requests.get(image_url)
 
    #wb mean write byte. This allows the program to accurately decipher the bytes as rgb values
