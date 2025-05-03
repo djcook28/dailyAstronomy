@@ -1,8 +1,12 @@
-import requests
+import streamlit
+import getAPI
+import downloadImage
 
-image_url = 'https://api.nasa.gov/assets/img/general/apod.jpg'
+api_key = 'YpFhAIDge6FkQLFW2dU9kFioWTDUXbbgVpoDVJg9'
+api_url = 'https://api.nasa.gov/planetary/apod'
 
-image = requests.get(image_url)
+api_content = getAPI.getAPIContent(api_key, api_url)
 
-with open('NASA image.jpg', 'wb') as img_file:
-   img_file.write(image.content)
+downloadImage.download_image(api_content['url'])
+
+print(api_content['title'])
